@@ -16,13 +16,13 @@ type result struct {
 
 type Resource struct {
 	Base   string
-	page   *pagedResult
+	page   *result
 	Client *http.Client
 }
 
 func (p *Resource) More() bool {
 	if p.page == nil {
-		p.page = &pagedResult{
+		p.page = &result{
 			Next: p.Base,
 		}
 	}
